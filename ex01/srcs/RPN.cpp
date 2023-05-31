@@ -6,7 +6,7 @@
 /*   By: sleon <sleon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 11:11:14 by sleon             #+#    #+#             */
-/*   Updated: 2023/05/31 13:23:24 by sleon            ###   ########.fr       */
+/*   Updated: 2023/05/31 13:25:38 by sleon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,8 @@ int	calculate(std::string arg){
 			}
 			else if (tmp == "/"){
 				check = 0;
-				if (_b == 0){
-					std::cout<<"Error : cannot divide by 0"<<std::endl;
-					return 1;}
+				if (_b == 0)
+					return (std::cout<<"Error : cannot divide by 0"<<std::endl, 1);
 				_stack.push(_a / _b);
 			}
 			else
