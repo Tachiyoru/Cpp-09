@@ -6,7 +6,7 @@
 /*   By: sleon <sleon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 11:11:12 by sleon             #+#    #+#             */
-/*   Updated: 2023/05/31 12:19:39 by sleon            ###   ########.fr       */
+/*   Updated: 2023/05/31 13:13:31 by sleon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ int	main(int argc, char **argv)
 {
 	if (argc == 2)
 	{
-		RPN			calculator;
 		std::string	arg = argv[1];
 
-		if (calculator.calculate(arg))
+		if (calculate(arg))
 			return 1;
 	}
 	else
