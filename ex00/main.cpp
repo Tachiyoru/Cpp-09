@@ -6,7 +6,7 @@
 /*   By: sleon <sleon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:25:31 by sleon             #+#    #+#             */
-/*   Updated: 2023/05/30 17:29:22 by sleon            ###   ########.fr       */
+/*   Updated: 2023/05/31 11:46:21 by sleon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,9 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		BitcoinExchange	Converter;
-		try{
-			Converter.storeInfile();
-			Converter.display(av[1]);
-		}
-		catch(const std::exception& e){
-			std::cerr << e.what() << '\n';
-		}
+
+		Converter.storeInfile();
+		Converter.display(av[1]);
 	}
 	else
 		std::cout<<"Run as : btc <infile>"<<std::endl;

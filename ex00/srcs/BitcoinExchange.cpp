@@ -6,7 +6,7 @@
 /*   By: sleon <sleon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:57:25 by sleon             #+#    #+#             */
-/*   Updated: 2023/05/31 11:03:32 by sleon            ###   ########.fr       */
+/*   Updated: 2023/05/31 11:45:47 by sleon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ BitcoinExchange::~BitcoinExchange(){
 }
 
 BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange const &toCopy){
-	(void)toCopy;
+	_dataMap.insert(toCopy._dataMap.begin(), toCopy._dataMap.end());
 	return (*this);
 }
 
 void	BitcoinExchange::storeInfile(){
 	std::ifstream file("data.csv");
 	if (!file){
-		std::cerr << "Erreur lors de l'ouverture du fichier." << std::endl;
+		std::cerr << "Error form opening the csv file." << std::endl;
 		return ;
 	}
 
@@ -45,14 +45,14 @@ void	BitcoinExchange::storeInfile(){
 		std::string date;
 		float value;
 
-		std::getline(iss, date, ','); // getline jusqu'a la virgule
+		std::getline(iss, date, ',');
 		iss >> value;
 		if (date.empty()){
-			std::cerr << "Error : Could not parse this line  " << line << std::endl;
+			std::cerr << "Error : Could not parse this line : " << line << std::endl;
 			continue;
 		}
 		if (iss.fail()){
-			std::cerr << "Error : Could not parse this line " << line << std::endl;
+			std::cerr << "Error : Could not parse this line : " << line << std::endl;
 			continue;
 		}
 		this->_dataMap[date] = value;
