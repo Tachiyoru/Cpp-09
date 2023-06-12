@@ -6,7 +6,7 @@
 /*   By: sleon <sleon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 12:39:40 by sleon             #+#    #+#             */
-/*   Updated: 2023/06/01 21:04:09 by sleon            ###   ########.fr       */
+/*   Updated: 2023/06/12 14:39:43 by sleon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,19 +162,13 @@ void	sortingList(std::list<int>&	nbrList, std::list<int>::iterator a,
 	std::list<int>::iterator b){
 	std::list<int>::iterator	x;
 	int							dist = 0;
-	int							dist2 = 0;
 
-	x = a;
-	while (x != b){
+	for (std::list<int>::iterator travel = a; travel != b; ++travel)
 		dist++;
-		x++;
-		}
 	if (dist > 1){
 		x = a;
-		while (dist2 != (dist/2)){
-			dist2++;
+		for (int travel = 0; travel != (dist/2); ++travel)
 			x++;
-		}
 		sortingList(nbrList, a, x);
 		sortingList(nbrList, x, b);
 		listMerge(nbrList, a, b, x);
